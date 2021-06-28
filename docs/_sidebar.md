@@ -1,2 +1,2 @@
-* [Overview](../README.md)
+* [Overview](overview.md)
 * [Functions](functions.md)
