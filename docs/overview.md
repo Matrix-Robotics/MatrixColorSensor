@@ -16,4 +16,4 @@ Internal 14 colors auto-detect send by number.
 MIT
 
 ## Number of Color
-<img src="docs/_media/colorNumber.png" width="60%">
+<img src="_media/colorNumber.png" width="60%">
