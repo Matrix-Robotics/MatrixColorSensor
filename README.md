@@ -14,3 +14,6 @@ Internal 14 colors auto-detect send by number.
 [MATRIX Official Website](https://matrixrobotics.com/)
 ## License
 MIT
+
+## Number of Color
+<img src="docs/_media/colorNumber.png" width="60%">
