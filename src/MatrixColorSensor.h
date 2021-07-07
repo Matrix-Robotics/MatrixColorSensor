@@ -10,22 +10,6 @@
 
 #define MatrixColor_ADDR 0x22
 
-typedef enum __ColorRegType
-{
-	Device_ID = 1,
-	Device_CONFIG,
-	Device_LIGHT,
-	Device_RED,
-	Device_GREEN,
-	Device_BLUE,
-	Device_CYAN,
-	Device_MAGENTA,
-	Device_YELLOW,
-	Device_BLACK,
-	Device_GRAY,
-	Device_NUM_COLOR
-} ColorRegType;
-
 typedef enum __ColorType
 {
 	R = 4,
@@ -38,7 +22,23 @@ typedef enum __ColorType
 } ColorType;
 
 class MatrixColor{
-private:
+	private:
+	typedef enum __ColorRegType
+	{
+		Device_ID = 1,
+		Device_CONFIG,
+		Device_LIGHT,
+		Device_RED,
+		Device_GREEN,
+		Device_BLUE,
+		Device_CYAN,
+		Device_MAGENTA,
+		Device_YELLOW,
+		Device_BLACK,
+		Device_GRAY,
+		Device_NUM_COLOR
+	} ColorRegType;
+	
 	uint8_t _ch=0, _ver=1;
 	uint8_t i2cReadData(ColorRegType reg);
 	void i2cMUXSelect();
