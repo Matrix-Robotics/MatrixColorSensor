@@ -7,12 +7,42 @@ bool MatrixColor::begin(){
 	if(i2cReadData(Device_ID) == 0x43){
 		i2cWriteData(Device_CONFIG, 0x10); // reset
 		delay(500);
-		i2cWriteData(Device_CONFIG, 0x0F); // enable
+		i2cWriteData(Device_CONFIG, setting); // enable
 		return true;
 	}
 	else{
 		return false;
 	}
+}
+
+void MatrixColor::setGamma(bool state){
+	i2cMUXSelect();
+	if(state){
+		setting |= 0b00000100;
+	}
+	else{
+		setting &= 0b00001011;
+	}
+	i2cWriteData(Device_CONFIG, setting);
+}
+
+void MatrixColor::setLight(bool state, bool mode, uint8_t pwm){
+	i2cMUXSelect();
+
+	if(state){
+		setting |= 0b00000010;
+	}
+	else{
+		setting &= 0b00001101;
+	}
+	if(mode){
+		setting |= 0b00000001;
+	}
+	else{
+		setting &= 0b00001110;
+	}
+	i2cWriteData(Device_CONFIG, setting);
+	i2cWriteData(Device_LIGHT, pwm);
 }
 
 uint8_t MatrixColor::getColor(ColorType color){

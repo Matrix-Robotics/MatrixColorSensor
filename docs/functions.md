@@ -12,6 +12,42 @@ bool begin()
 ***
 <br />
 
+## Set Gamma
+
+Set filter to stabilize Euler angle output.
+
+```Arduino
+void setGamma(bool state)
+```
+
+### Parameters
+
+- `bool` is logic of gamma correction on/off `state`. (Options: `true` / `false`)
+
+<br /><br /><br />
+***
+<br />
+
+## Set Light
+
+Set filter to stabilize Euler angle output.
+
+```Arduino
+void setLight(bool state, bool mode, uint8_t pwm)
+```
+
+### Parameters
+
+- First `bool` is logic of fill-light on/off `state`. (Options: `true` / `false`)
+
+- Second `bool` is logic of auto-adjust `mode` on/off state. (Options: `true` / `false`)
+
+- `uint8_t` is number of `pwm` of fill-light brightness, only works while auto-adjust mode is off.
+
+<br /><br /><br />
+***
+<br />
+
 ## Get Color
 
 get 8-bits **RGB** or **CMYK** format data.
@@ -22,7 +58,7 @@ uint8_t getColor(ColorType color)
 
 ### Parameters
 
-- `ColorType` is a string of color. (Options: `R` / `G` / `B` / `C` / `M` / `Y` / `K`)
+- `ColorType` is a string of `color`. (Options: `R` / `G` / `B` / `C` / `M` / `Y` / `K`)
 
 ### Return
 

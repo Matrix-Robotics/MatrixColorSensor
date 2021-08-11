@@ -40,12 +40,18 @@ class MatrixColor{
 	} ColorRegType;
 	
 	uint8_t _ch=0, _ver=1;
+	uint8_t setting = 0x0F;
 	uint8_t i2cReadData(ColorRegType reg);
 	void i2cMUXSelect();
 	void i2cWriteData(ColorRegType reg, uint8_t data);
 public:
 	friend class MiniI2C;
 	bool begin();
+
+	void setGamma(bool state);
+
+	void setLight(bool state, bool mode, uint8_t pwm);
+
 	uint8_t getColor(ColorType color);
 
 	uint8_t getGrayscale();

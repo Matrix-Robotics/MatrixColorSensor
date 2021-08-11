@@ -10,6 +10,11 @@ void setup() {
   else{
     Serial.println("Matirx Color Sensor activation failed");
   }
+  MXColor1.setGamma(true);
+  Serial.println("Set gamma correction as open");
+
+  MXColor1.setLight(true, true, 0);
+  Serial.println("Set fill-light open and in auto adjust mode");
 }
 
 void loop() {
